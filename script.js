@@ -6,8 +6,7 @@ document.querySelectorAll(".dropdown-container").forEach((el) => {
     menu.classList.add("visible");
 
     const viewportWidth = window.visualViewport.width;
-    const menuWidth = menu.offsetWidth;
-    const menuHeight = menu.offsetHeight;
+    const viewportHeight = window.visualViewport.height;
 
     const {
       width: toggleWidth,
@@ -17,29 +16,31 @@ document.querySelectorAll(".dropdown-container").forEach((el) => {
 
     let left;
 
-    if (toggleY > menuHeight) {
-      menu.style.top = `${-menuHeight}px`;
+    if (toggleY > viewportHeight / 2) {
       menu.style.maxHeight = `${toggleY}px`;
+      menu.style.top = `${-menu.offsetHeight}px`;
       toggle.classList.add("upward");
     } else {
-      menu.style.maxHeight = "";
+      menu.style.maxHeight = `${viewportHeight - toggleY - el.offsetHeight}px`;
+      menu.style.top = "";
       toggle.classList.remove("upward");
     }
 
-    if (toggleWidth / 2 + toggleX + menuWidth / 2 > viewportWidth) {
+    if (toggleWidth / 2 + toggleX + menu.offsetWidth / 2 > viewportWidth) {
       left =
-        (menuWidth - el.offsetWidth) / 2 +
+        (menu.offsetWidth - el.offsetWidth) / 2 +
         toggleX +
-        (toggleWidth + menuWidth) / 2 -
+        (toggleWidth + menu.offsetWidth) / 2 -
         viewportWidth;
-    } else if (toggleX - (menuWidth - toggleWidth) / 2 < 0) {
+    } else if (toggleX - (menu.offsetWidth - toggleWidth) / 2 < 0) {
       left = toggleX;
     } else {
-      left = (menuWidth - toggleWidth) / 2;
+      left = (menu.offsetWidth - toggleWidth) / 2;
     }
     menu.style.left = `${-left}px`;
   });
   el.addEventListener("mouseleave", () => {
     menu.classList.remove("visible");
+    menu.style.left = "";
   });
 });
