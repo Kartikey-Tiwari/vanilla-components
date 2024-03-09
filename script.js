@@ -3,10 +3,10 @@ document.querySelectorAll(".dropdown-container").forEach((el) => {
   const toggle = el.querySelector(".dropdown-toggle");
 
   el.addEventListener("mouseenter", () => {
-    menu.classList.add("visible");
-
     const viewportWidth = window.visualViewport.width;
     const viewportHeight = window.visualViewport.height;
+
+    menu.classList.add("visible");
 
     const {
       width: toggleWidth,
@@ -21,7 +21,7 @@ document.querySelectorAll(".dropdown-container").forEach((el) => {
       menu.style.top = `${-menu.offsetHeight}px`;
       toggle.classList.add("upward");
     } else {
-      menu.style.maxHeight = `${viewportHeight - toggleY - el.offsetHeight}px`;
+      menu.style.maxHeight = `${viewportHeight - toggleY - el.offsetHeight - 1}px`;
       menu.style.top = "";
       toggle.classList.remove("upward");
     }

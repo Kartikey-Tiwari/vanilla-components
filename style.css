@@ -66,6 +66,7 @@ Navbar
 .nav-item:hover {
   background-color: #eed3d9;
   transform: translate(-2px, -1px);
+  z-index: 1;
 }
 
 .nav-item.rounded {
@@ -121,8 +122,6 @@ Navbar
 }
 
 .dropdown-toggle {
-  position: relative;
-  z-index: 0;
   cursor: pointer;
   border: none;
   background: none;
