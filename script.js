@@ -44,3 +44,18 @@ document.querySelectorAll(".dropdown-container").forEach((el) => {
     menu.style.left = "";
   });
 });
+
+document
+  .querySelector(".mob-nav-toggle")
+  .addEventListener("click", function (e) {
+    e.stopPropagation();
+    this.classList.remove("active");
+    this.closest(".mob-nav").classList.add("active");
+  });
+
+document.querySelector(".mob-nav").addEventListener("click", function () {
+  if (this.classList.contains("active")) {
+    this.classList.remove("active");
+    this.querySelector(".mob-nav-toggle").classList.add("active");
+  }
+});
