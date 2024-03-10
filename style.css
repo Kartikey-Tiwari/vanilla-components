@@ -274,3 +274,70 @@ Navbar
 .slide img {
   height: 100%;
 }
+
+/* mobile nav */
+
+.mob-nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.mob-nav.active {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: flex-end;
+  z-index: 1;
+  margin: 0;
+  padding: 2rem;
+}
+
+.mob-nav-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mob-nav-container:active {
+  transform: translate(2px, 2px);
+}
+
+.mob-nav-toggle {
+  display: none;
+}
+
+.mob-nav-toggle.active {
+  display: block;
+}
+
+.mob-nav-toggle.active ~ .mob-nav-container {
+  display: none;
+}
+
+.mob-nav-btn {
+  background-color: #23b35f;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.mob-nav-text {
+  background-color: #e4e4e4;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}

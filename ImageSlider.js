@@ -45,7 +45,6 @@ class ImageSlider {
     const slideLeftBtn = this.domElement.querySelector(".slider-btn.left");
     const slideRightBtn = this.domElement.querySelector(".slider-btn.right");
 
-    console.log(this.slides, this.sliderNav, slideLeftBtn, slideRightBtn);
     if (!this.slides || !this.sliderNav || !slideLeftBtn || !slideRightBtn)
       throw new Error("Missing elements for Image Slider");
 
